@@ -1,0 +1,5 @@
+1,Dr. Sara Khan,Cardiology,03111234567,doc456,1500.00
+
+3,Dr. Ayesha Rauf,Neurology,03019876543,brain1,2000.00
+4,Mahad Sajid Raja,ENT,03001212120,mahad123,2000.00
+6,Dackar Khalid,dil ka dactar,03001231231,saad123,1000.00

@@ -1,0 +1,3 @@
+1,Dr. Sara Khan,Cardiology,03111234567,doc456,1500.00
+2,Dr. Hamza Noor,Dermatology,03119876543,skin123,1200.00
+3,Dr. Ayesha Rauf,Neurology,03019876543,brain1,2000.00
