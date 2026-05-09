@@ -31,7 +31,7 @@ A fully functional Hospital Management System built in C++ using SFML 3.x with a
 - Language: C++
 - GUI: SFML 3.x
 - Data Storage: Plain `.txt` files
-- IDE:** Visual Studio Community Version 2022
+- IDE:Visual Studio Community Version 2022
 - No STL containers used — all data managed manually via custom `Storage<T>` template class and the 'TextTools.cpp' has all the string functions made manually
 
 # Custom Classes
