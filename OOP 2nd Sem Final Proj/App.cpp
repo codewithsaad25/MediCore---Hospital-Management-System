@@ -1316,6 +1316,7 @@ void App::patientChoice(int choice)
     }
     else if (choice == 7) 
     {
+        failedAttempts = 0;
         action = ACTION_TOPUP; step = 1; screen = SCREEN_ACTION; inputActive = true;
         setTitle("Top Up Balance", "Add funds to your MediCore wallet.");
         setMessage("Enter amount greater than PKR 0.");
@@ -1623,15 +1624,33 @@ void App::actionInput()
         try
         {
             if (!Validator::isPositiveFloat(input))
-                throw InvalidInputException("Amount must be greater than 0.");
+            {
+                failedAttempts++;
+                char attemptsLeft[40] = "Invalid amount. Attempts left: ";
+                char num[5];
+                TextTools::intToText(3 - failedAttempts, num, 5);
+                TextTools::append(attemptsLeft, num, 40);
+                throw InvalidInputException(attemptsLeft);
+            }
+            failedAttempts = 0;
             *currentPatient() += TextTools::toFloat(input);
             FileHandler::savePatients(patients);
             clearInput();
             setToast("Balance topped up successfully.", true);
             showPatientMenu();
         }
-        catch (HospitalException& e) { setToast(e.what(), false); clearInput(); }
-    }
+        catch (HospitalException& e)
+        {
+            setToast(e.what(), false);
+            clearInput();
+            if (failedAttempts >= 3)
+            {
+                failedAttempts = 0;
+                setToast("Kaha tha sai paise add kro!!", false);
+                showPatientMenu();
+            }
+        }
+}
 
     else if (action == ACTION_COMPLETE || action == ACTION_NOSHOW)
     {
