@@ -85,4 +85,4 @@ A fully functional Hospital Management System built in C++ using SFML 3.x with a
 `security_log.txt`  Login attempt history 
 
 # GitHub
-paste your public repository link here
+https://github.com/codewithsaad25/MediCore---Hospital-Management-System
